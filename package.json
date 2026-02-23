@@ -1,0 +1,9 @@
+{
+  "name": "whatsapp-berlin-weather",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "twilio": "^4.23.0"
+  }
+}
