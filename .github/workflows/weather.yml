@@ -2,7 +2,7 @@ name: WhatsApp Berlin Weather (Bright Sky)
 
 on:
   schedule:
-    - cron: "20 44 * * *" # 05:00 UTC = 06:00 Berlin (CET)
+    - cron: "46 15 * * *" # 05:00 UTC = 06:00 Berlin (CET)
   workflow_dispatch: {}
 
 jobs:
