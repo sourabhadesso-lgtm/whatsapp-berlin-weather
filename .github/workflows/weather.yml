@@ -1,0 +1,25 @@
+name: WhatsApp Berlin Weather (Bright Sky)
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # 05:00 UTC = 06:00 Berlin (CET)
+  workflow_dispatch: {}
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Send WhatsApp message
+        env:
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+        run: node send-weather-whatsapp.js
